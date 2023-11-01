@@ -17,6 +17,7 @@ services:
       build:
         context: ./server
         dockerfile: Dockerfile.server
+      restart: always
       ports:
         - "4000:4000"
       volumes:
