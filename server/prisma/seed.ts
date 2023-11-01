@@ -14,10 +14,10 @@ async function main() {
       messages: {
         create: [
           {
-            body: "A Note for Jack",
+            body: "A Note for Jack Sparrowww",
           },
           {
-            body: "Another note for Jack",
+            body: "Another note for Jack Sparrowww",
           },
         ],
       },
