@@ -3,8 +3,8 @@ RUN mkdir -p /app/public /app/src
 WORKDIR /app
 COPY . /app
 RUN npm install
-RUN npx prisma migrate dev --name init 
-RUN npx prisma db seed 
+#RUN npx prisma migrate dev --name init 
+#RUN npx prisma db seed 
 RUN npm run build
 CMD ["npm", "run", "dev"]
 EXPOSE 4000

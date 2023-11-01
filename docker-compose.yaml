@@ -11,9 +11,15 @@ services:
         volumes: 
         - /var/lib/postgresql/data
     server:
+        depends_on:
+            db:
+                condition: service_completed_successfully
+                restart: true
         build:
             context: ./server
             dockerfile: Dockerfile.server
+        command: npx prisma migrate dev --name init && npx prisma db seed
+       
         volumes:
             - /app/node_modules
            
