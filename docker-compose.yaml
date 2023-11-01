@@ -1,0 +1,30 @@
+version: '3'
+services:
+    db:
+        image: postgres:14.1-alpine
+        restart: always
+        environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        ports:
+        - '5432:5432'
+        volumes: 
+        - /var/lib/postgresql/data
+    server:
+        build:
+            context: ./server
+            dockerfile: Dockerfile.server
+        volumes:
+            - /app/node_modules
+           
+        ports:
+            - "4000:4000"
+    client:
+        build:
+            context: ./client
+            dockerfile: Dockerfile.client
+        volumes:
+            - /app/node_modules
+            - ./client:/app
+        ports:
+            - "5173:5173"
